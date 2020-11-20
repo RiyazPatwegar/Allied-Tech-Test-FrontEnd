@@ -1,0 +1,39 @@
+<section>
+    <div class="container">      
+        <span class="list-head">Employee List</span>        
+
+        <div class="clearfix">&nbsp;</div>
+        <input type="text" name="search" class="float-right" placeholder="search" (keyup)="search($event)" />
+        <table class="table">
+            <thead class="thead-dark">
+                <td>#</td>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Contact</td>
+                <td>Action</td>
+            </thead>
+            <tr *ngFor="let item of employeeList">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.address }}</td>
+              <td>{{ item.contact }}</td>
+              <td>
+                <button class="btn btn-primary" (click)="openFormModal(item.id)">Edit</button> &nbsp;
+                <button class="btn btn-primary" (click)="deleteEmployee(item.id)">Delete</button>
+              </td>
+            </tr>
+            <tr *ngIf="!employeeList || employeeList.length == null || employeeList.length == 0"> 
+              <td colspan="5" class="text-center">No Data Available</td>
+            </tr>
+          </table>
+
+        <div *ngIf="total">
+          <ngb-pagination
+            [(page)]="page"
+            [pageSize]="pageSize"
+            [collectionSize]="total"
+            (pageChange)="pageChange($event)"
+            [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+    </div>
+</section>

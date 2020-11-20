@@ -1,0 +1,25 @@
+ngb-pagination li {
+    &:first-child a {
+      span {
+        display: none;
+      }
+      &:before {
+        /* provide your content here */
+      }
+    }
+  }
+
+  table thead {
+      font-weight: bold;
+  }
+
+  .list-head {
+    font-weight: 800;
+    font-size: large;
+    float: left;    
+  }
+  
+  .clearfix {
+    margin-top: 10px;
+    width: 100%;
+  }

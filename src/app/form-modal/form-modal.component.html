@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title">Modal Title</h4>
+    <button type="button" class="close" aria-label="X"
+     (click)="activeModal.dismiss('Cross click')">
+    </button>
+  </div>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+    <input type="hidden" 
+    class="form-control"
+    formControlName="id" />
+    <div class="modal-boy">
+      <div class="container">
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" 
+            class="form-control"
+            formControlName="name" maxlength="25" required/>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" formControlName="address" maxlength="250" required>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" formControlName="contact" minlength="10" maxlength="10" required>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success"
+        [disabled]="!myForm.valid">
+        Submit Form
+      </button>
+    </div>
+  </form>
